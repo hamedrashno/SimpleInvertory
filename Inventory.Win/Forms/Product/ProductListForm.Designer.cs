@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             productGridView = new DataGridView();
+            Name = new DataGridViewTextBoxColumn();
+            CategoryName = new DataGridViewTextBoxColumn();
+            UnitName = new DataGridViewTextBoxColumn();
+            MinStock = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
             createProductBtn = new Button();
             groupBox1 = new GroupBox();
             label4 = new Label();
@@ -39,11 +44,6 @@
             unitCombo = new ComboBox();
             minStockTxt = new TextBox();
             nameTxt = new TextBox();
-            Name = new DataGridViewTextBoxColumn();
-            CategoryName = new DataGridViewTextBoxColumn();
-            UnitName = new DataGridViewTextBoxColumn();
-            MinStock = new DataGridViewTextBoxColumn();
-            Id = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)productGridView).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -52,19 +52,57 @@
             // 
             productGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             productGridView.Columns.AddRange(new DataGridViewColumn[] { Name, CategoryName, UnitName, MinStock, Id });
-            productGridView.Location = new Point(2, 115);
+            productGridView.Dock = DockStyle.Bottom;
+            productGridView.Location = new Point(0, 135);
             productGridView.Name = "productGridView";
+            productGridView.ReadOnly = true;
             productGridView.RightToLeft = RightToLeft.Yes;
             productGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            productGridView.Size = new Size(728, 468);
+            productGridView.Size = new Size(628, 468);
             productGridView.TabIndex = 0;
             productGridView.CellDoubleClick += productGridView_CellDoubleClick;
             // 
+            // Name
+            // 
+            Name.DataPropertyName = "Name";
+            Name.HeaderText = "نام";
+            Name.Name = "Name";
+            Name.ReadOnly = true;
+            // 
+            // CategoryName
+            // 
+            CategoryName.DataPropertyName = "CategoryName";
+            CategoryName.HeaderText = "دسته بندی";
+            CategoryName.Name = "CategoryName";
+            CategoryName.ReadOnly = true;
+            // 
+            // UnitName
+            // 
+            UnitName.DataPropertyName = "UnitName";
+            UnitName.HeaderText = "واحد";
+            UnitName.Name = "UnitName";
+            UnitName.ReadOnly = true;
+            // 
+            // MinStock
+            // 
+            MinStock.DataPropertyName = "MinStock";
+            MinStock.HeaderText = "میزان هشدار";
+            MinStock.Name = "MinStock";
+            MinStock.ReadOnly = true;
+            // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
             // createProductBtn
             // 
-            createProductBtn.Location = new Point(7, 48);
+            createProductBtn.Location = new Point(12, 81);
             createProductBtn.Name = "createProductBtn";
-            createProductBtn.Size = new Size(65, 30);
+            createProductBtn.Size = new Size(47, 30);
             createProductBtn.TabIndex = 1;
             createProductBtn.Text = "ثبت ";
             createProductBtn.UseVisualStyleBackColor = true;
@@ -81,10 +119,10 @@
             groupBox1.Controls.Add(minStockTxt);
             groupBox1.Controls.Add(nameTxt);
             groupBox1.Controls.Add(createProductBtn);
-            groupBox1.Location = new Point(4, 6);
+            groupBox1.Location = new Point(0, 6);
             groupBox1.Name = "groupBox1";
             groupBox1.RightToLeft = RightToLeft.Yes;
-            groupBox1.Size = new Size(724, 103);
+            groupBox1.Size = new Size(632, 123);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "ثبت محصول جدید ";
@@ -92,7 +130,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(136, 34);
+            label4.Location = new Point(44, 33);
             label4.Name = "label4";
             label4.Size = new Size(69, 15);
             label4.TabIndex = 9;
@@ -101,7 +139,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(320, 35);
+            label3.Location = new Point(226, 34);
             label3.Name = "label3";
             label3.Size = new Size(29, 15);
             label3.TabIndex = 8;
@@ -110,7 +148,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(434, 34);
+            label2.Location = new Point(340, 35);
             label2.Name = "label2";
             label2.Size = new Size(59, 15);
             label2.TabIndex = 7;
@@ -119,7 +157,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(693, 34);
+            label1.Location = new Point(599, 34);
             label1.Name = "label1";
             label1.Size = new Size(21, 15);
             label1.TabIndex = 6;
@@ -128,7 +166,7 @@
             // categoryCombo
             // 
             categoryCombo.FormattingEnabled = true;
-            categoryCombo.Location = new Point(355, 52);
+            categoryCombo.Location = new Point(261, 53);
             categoryCombo.Name = "categoryCombo";
             categoryCombo.Size = new Size(138, 23);
             categoryCombo.TabIndex = 5;
@@ -136,61 +174,30 @@
             // unitCombo
             // 
             unitCombo.FormattingEnabled = true;
-            unitCombo.Location = new Point(211, 53);
+            unitCombo.Location = new Point(119, 52);
             unitCombo.Name = "unitCombo";
             unitCombo.Size = new Size(138, 23);
             unitCombo.TabIndex = 4;
             // 
             // minStockTxt
             // 
-            minStockTxt.Location = new Point(105, 53);
+            minStockTxt.Location = new Point(13, 52);
             minStockTxt.Name = "minStockTxt";
             minStockTxt.Size = new Size(100, 23);
             minStockTxt.TabIndex = 3;
             // 
             // nameTxt
             // 
-            nameTxt.Location = new Point(499, 52);
+            nameTxt.Location = new Point(405, 52);
             nameTxt.Name = "nameTxt";
             nameTxt.Size = new Size(219, 23);
             nameTxt.TabIndex = 2;
-            // 
-            // Name
-            // 
-            Name.DataPropertyName = "Name";
-            Name.HeaderText = "نام";
-            Name.Name = "Name";
-            // 
-            // CategoryName
-            // 
-            CategoryName.DataPropertyName = "CategoryName";
-            CategoryName.HeaderText = "دسته بندی";
-            CategoryName.Name = "CategoryName";
-            // 
-            // UnitName
-            // 
-            UnitName.DataPropertyName = "UnitName";
-            UnitName.HeaderText = "واحد";
-            UnitName.Name = "UnitName";
-            // 
-            // MinStock
-            // 
-            MinStock.DataPropertyName = "MinStock";
-            MinStock.HeaderText = "میزان هشدار";
-            MinStock.Name = "MinStock";
-            // 
-            // Id
-            // 
-            Id.DataPropertyName = "Id";
-            Id.HeaderText = "Id";
-            Id.Name = "Id";
-            Id.Visible = false;
             // 
             // ProductListForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(732, 583);
+            ClientSize = new Size(628, 603);
             Controls.Add(groupBox1);
             Controls.Add(productGridView);
             Text = "محصولات";

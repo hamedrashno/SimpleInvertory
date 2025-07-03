@@ -12,9 +12,9 @@ namespace Inventory.Application.Services;
 
 public class ProductService(AppDbContext db)
 {
-    public async Task<ProductEntity?> GetByIdAsync(int id)
+    public ProductEntity? GetByIdAsync(int id)
     {
-        return await db.Products.FindAsync(id);
+        return db.Products.Find(id);
     }
 
     public List<ProductListModel> SearchAsync(
@@ -46,7 +46,7 @@ public class ProductService(AppDbContext db)
         if (isActive.HasValue)
             query = query.Where(p => p.IsActive == isActive);
 
-        return  query
+        return query
             .OrderBy(p => p.Id)
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
@@ -71,24 +71,24 @@ public class ProductService(AppDbContext db)
     public bool Update(ProductEntity entity)
     {
         db.Products.Update(entity);
-        return  db.SaveChanges() > 0;
+        return db.SaveChanges() > 0;
     }
 
     public bool SetActive(int id, bool isActive)
     {
-        var entity =  db.Products.Find(id);
+        var entity = db.Products.Find(id);
         if (entity == null) return false;
 
         entity.IsActive = isActive;
-        return  db.SaveChanges() > 0;
+        return db.SaveChanges() > 0;
     }
 
     public bool Delete(int id)
     {
-        var entity =  db.Products.Find(id);
+        var entity = db.Products.Find(id);
         if (entity == null) return false;
 
         entity.IsDeleted = true;
-        return  db.SaveChanges() > 0;
+        return db.SaveChanges() > 0;
     }
 }
