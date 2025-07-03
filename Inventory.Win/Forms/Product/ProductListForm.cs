@@ -41,20 +41,27 @@ namespace Inventory.Win.Forms.Product
 
         void LoadUnits()
         {
-            unitCombo.DataSource = _unitService.SearchAsync(pageSize: 999);
-            unitCombo.DisplayMember = "Name";
-            unitCombo.SelectedIndex = 0;
-            unitCombo.ValueMember = "Id";
+            var data = _unitService.SearchAsync(pageSize: 999);
+            if (data.Any())
+            {
+                unitCombo.DataSource = data;
 
+                unitCombo.DisplayMember = "Name";
+                unitCombo.SelectedIndex = 0;
+                unitCombo.ValueMember = "Id";
+            }
         }
 
         void LoadCategories()
         {
-            categoryCombo.DataSource = _categoryService.SearchAsync(pageSize: 999);
-            categoryCombo.DisplayMember = "Name";
-            categoryCombo.SelectedIndex = 0;
-            categoryCombo.ValueMember = "Id";
-
+            var data = _categoryService.SearchAsync(pageSize: 999);
+            if (data.Any())
+            {
+                categoryCombo.DataSource = data;
+                categoryCombo.DisplayMember = "Name";
+                categoryCombo.SelectedIndex = 0;
+                categoryCombo.ValueMember = "Id";
+            }
         }
         private void ProductListForm_Load(object sender, EventArgs e)
         {
@@ -66,7 +73,7 @@ namespace Inventory.Win.Forms.Product
 
         private void productGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex < 0) return;
+            if (e.RowIndex < 0) return;
             var product = (ProductListModel)productGridView.Rows[e.RowIndex].DataBoundItem;
 
         }

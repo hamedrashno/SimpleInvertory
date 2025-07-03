@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             productGridView = new DataGridView();
-            Name = new DataGridViewTextBoxColumn();
-            CategoryName = new DataGridViewTextBoxColumn();
-            UnitName = new DataGridViewTextBoxColumn();
-            MinStock = new DataGridViewTextBoxColumn();
             createProductBtn = new Button();
             groupBox1 = new GroupBox();
             label4 = new Label();
@@ -43,6 +39,11 @@
             unitCombo = new ComboBox();
             minStockTxt = new TextBox();
             nameTxt = new TextBox();
+            Name = new DataGridViewTextBoxColumn();
+            CategoryName = new DataGridViewTextBoxColumn();
+            UnitName = new DataGridViewTextBoxColumn();
+            MinStock = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)productGridView).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -50,7 +51,7 @@
             // productGridView
             // 
             productGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productGridView.Columns.AddRange(new DataGridViewColumn[] { Name, CategoryName, UnitName, MinStock });
+            productGridView.Columns.AddRange(new DataGridViewColumn[] { Name, CategoryName, UnitName, MinStock, Id });
             productGridView.Location = new Point(2, 115);
             productGridView.Name = "productGridView";
             productGridView.RightToLeft = RightToLeft.Yes;
@@ -58,26 +59,6 @@
             productGridView.Size = new Size(728, 468);
             productGridView.TabIndex = 0;
             productGridView.CellDoubleClick += productGridView_CellDoubleClick;
-            // 
-            // Name
-            // 
-            Name.HeaderText = "نام";
-            Name.Name = "Name";
-            // 
-            // CategoryName
-            // 
-            CategoryName.HeaderText = "دسته بندی";
-            CategoryName.Name = "CategoryName";
-            // 
-            // UnitName
-            // 
-            UnitName.HeaderText = "واحد";
-            UnitName.Name = "UnitName";
-            // 
-            // MinStock
-            // 
-            MinStock.HeaderText = "میزان هشدار";
-            MinStock.Name = "MinStock";
             // 
             // createProductBtn
             // 
@@ -174,6 +155,37 @@
             nameTxt.Size = new Size(219, 23);
             nameTxt.TabIndex = 2;
             // 
+            // Name
+            // 
+            Name.DataPropertyName = "Name";
+            Name.HeaderText = "نام";
+            Name.Name = "Name";
+            // 
+            // CategoryName
+            // 
+            CategoryName.DataPropertyName = "CategoryName";
+            CategoryName.HeaderText = "دسته بندی";
+            CategoryName.Name = "CategoryName";
+            // 
+            // UnitName
+            // 
+            UnitName.DataPropertyName = "UnitName";
+            UnitName.HeaderText = "واحد";
+            UnitName.Name = "UnitName";
+            // 
+            // MinStock
+            // 
+            MinStock.DataPropertyName = "MinStock";
+            MinStock.HeaderText = "میزان هشدار";
+            MinStock.Name = "MinStock";
+            // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.Visible = false;
+            // 
             // ProductListForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -193,10 +205,6 @@
 
         private DataGridView productGridView;
         private Button createProductBtn;
-        private DataGridViewTextBoxColumn Name;
-        private DataGridViewTextBoxColumn CategoryName;
-        private DataGridViewTextBoxColumn UnitName;
-        private DataGridViewTextBoxColumn MinStock;
         private GroupBox groupBox1;
         private TextBox minStockTxt;
         private TextBox nameTxt;
@@ -206,5 +214,10 @@
         private Label label1;
         private ComboBox categoryCombo;
         private ComboBox unitCombo;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn CategoryName;
+        private DataGridViewTextBoxColumn UnitName;
+        private DataGridViewTextBoxColumn MinStock;
+        private DataGridViewTextBoxColumn Id;
     }
 }

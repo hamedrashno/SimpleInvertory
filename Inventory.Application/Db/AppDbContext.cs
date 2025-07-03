@@ -26,7 +26,7 @@ namespace Inventory.Application.Db
 
         public AppDbContext()
         {
-            var dbFolder = Path.Combine(Directory.GetCurrentDirectory(), "db");
+            var dbFolder = Directory.GetCurrentDirectory();
             if (!Directory.Exists(dbFolder))
             {
                 Directory.CreateDirectory(dbFolder);

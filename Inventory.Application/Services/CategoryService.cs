@@ -14,7 +14,7 @@ public class CategoryService(AppDbContext db)
         return await db.Categories.FindAsync(id);
     }
 
-    public async Task<List<CategoryEntity>> SearchAsync(
+    public List<CategoryEntity> SearchAsync(
         string? name = null,
         bool? isActive = null,
         int pageNumber = 1,
@@ -28,11 +28,11 @@ public class CategoryService(AppDbContext db)
         if (isActive.HasValue)
             query = query.Where(c => c.IsActive == isActive);
 
-        return await query
+        return  query
             .OrderBy(c => c.Id)
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
-            .ToListAsync();
+            .ToList();
     }
 
     public async Task<int> AddAsync(CategoryEntity entity)

@@ -14,7 +14,7 @@ public class UnitService(AppDbContext db)
         return await db.Units.FindAsync(id);
     }
 
-    public async Task<List<UnitEntity>> SearchAsync(
+    public  List<UnitEntity> SearchAsync(
         string? name = null,
         bool? isActive = null,
         int pageNumber = 1,
@@ -28,11 +28,11 @@ public class UnitService(AppDbContext db)
         if (isActive.HasValue)
             query = query.Where(u => u.IsActive == isActive);
 
-        return await query
+        return query
             .OrderBy(u => u.Id)
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
-            .ToListAsync();
+            .ToList();
     }
 
     public async Task<int> AddAsync(UnitEntity entity)
